@@ -1,0 +1,10 @@
+local answers = {"Yes!","Nope!","You wish.","I wouldn't chance my luck with it.","Nah.","According to my calculations, no.","You bet.","I don't know.","Not sure.","Hmm, try again later.","Of course!","Obviously!","Only if!","Most likely.","I don't know. What am I, your bot!?","Ngl, it's true."}
+function OnPlayerChat(p,t)
+    if t:find("!8ball ") or t:find("!8Ball ")then
+        ans = math.random(1,#answers)
+        ConsoleMessageAllPlayers("[^3MobBot^7] "..answers[ans])
+    end
+end
+function OnEverySecond(p)
+    BigMessageAllPlayers("\n\n\n\n\n^1!8ball^7 <^1question^7>")
+end
