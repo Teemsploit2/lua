@@ -1,0 +1,9 @@
+function bad(b)
+    while true do
+        wait()
+    end
+end
+ 
+function myerrorhandler(err)
+    print( "ERROR:",err)
+ end
