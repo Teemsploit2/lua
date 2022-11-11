@@ -1,0 +1,25 @@
+plr = owner
+char = plr.Character
+sc = .5
+ 
+for k,g in pairs (char:GetDescendants()) do
+    if g:IsA("Weld") or g:IsA("Glue") then
+        local Angle0 = g.C0 - Vector3.new(g.C0.X,g.C0.Y,g.C0.Z)
+        local Angle1 = g.C1 - Vector3.new(g.C1.X,g.C1.Y,g.C1.Z)
+        g.C0 = CFrame.new(g.C0.X*sc,g.C0.Y*sc,g.C0.Z*sc) * Angle0
+        g.C1 = CFrame.new(g.C1.X*sc,g.C1.Y*sc,g.C1.Z*sc) * Angle1
+    elseif g:IsA("SpecialMesh") then
+        if g.MeshType ~= Enum.MeshType.Head then
+            g.Scale = g.Scale*sc
+        end
+    elseif g:IsA("Part") or g:IsA("MeshPart") then
+        g.Size = g.Size*sc
+    elseif g:IsA("Motor") or g:IsA("Motor6D") then
+        local Angle0 = g.C0 - Vector3.new(g.C0.X,g.C0.Y,g.C0.Z)
+        local Angle1 = g.C1 - Vector3.new(g.C1.X,g.C1.Y,g.C1.Z)
+        g.C0 = CFrame.new(g.C0.X*sc,g.C0.Y*sc,g.C0.Z*sc) * Angle0
+        g.C1 = CFrame.new(g.C1.X*sc,g.C1.Y*sc,g.C1.Z*sc) * Angle1
+    elseif g:IsA("Humanoid") then
+        g.HipHeight = g.HipHeight*sc
+    end
+end
