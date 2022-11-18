@@ -1,4 +1,4 @@
-plr = owner
+plr = game.players.localplayer
 char = plr.Character
 sc = .5
  
